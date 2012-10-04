@@ -3,36 +3,36 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 <ui:composition>
-    <h:link value="HelloWorld" outcome="/helloWorld/nameInput?faces-redirect=true"/>
+    <h:link value="#{msgs.helloWorld}" outcome="/helloWorld/nameInput?faces-redirect=true"/>
     <br/>
-    <h:link value="View Param" outcome="/viewParam/viewParam"/>
+    <h:link value="#{msgs.viewParam}" outcome="/viewParam/viewParam"/>
     <br/>
-    <h:link value="Guess number" outcome="/guessNumber/guessNumberInput"/>
+    <h:link value="#{msgs.guessNumber}" outcome="/guessNumber/guessNumberInput"/>
     <br/>
-    <h:link value="Create books" outcome="/book/newBook"/>
+    <h:link value="#{msgs.createBook}" outcome="/book/newBook"/>
     <br/>
-    <h:link value="Flash context" outcome="/flash/first"/>
+    <h:link value="#{msgs.flashContent}" outcome="/flash/first"/>
     <br/>
-    <h:link value="Calculator simple" outcome="/calculator/calculatorSimple"/>
+    <h:link value="#{msgs.calculatorSimple}" outcome="/calculator/calculatorSimple"/>
     <br/>
-    <h:link value="Calculator contract" outcome="/calculator/calculatorCompSimple"/>
+    <h:link value="#{msgs.calculatorContract}" outcome="/calculator/calculatorCompSimple"/>
     <br/>
-    <h:link value="Calculator complex" outcome="/calculator/calculatorCompComplex"/>
+    <h:link value="#{msgs.calculatorComplex}" outcome="/calculator/calculatorCompComplex"/>
     <br/>
-    <h:link value="Ajax count" outcome="/ajax/count"/>
+    <h:link value="#{msgs.ajaxCount}" outcome="/ajax/count"/>
     <br/>
-    <h:link value="Ajax Hide/Show" outcome="/ajax/hidenshow"/>
+    <h:link value="#{msgs.ajaxHideShow}" outcome="/ajax/hidenshow"/>
     <br/>
-    <h:link value="Ajax Aggregate" outcome="/ajax/aggregate"/>
+    <h:link value="#{msgs.ajaxAggregate}" outcome="/ajax/aggregate"/>
     <br/>
-    <h:link value="Ajax echo" outcome="/ajax/echo2"/>
+    <h:link value="#{msgs.ajaxEcho}" outcome="/ajax/echo2"/>
     <br/>
-    <h:link value="Ajax Redirect" outcome="/ajax/redirect"/>
+    <h:link value="#{msgs.ajaxRedirect}" outcome="/ajax/redirect"/>
     <br/>
-    <h:link value="Ajax Listener" outcome="/ajax/listener"/>
+    <h:link value="#{msgs.ajaxListener}" outcome="/ajax/listener"/>
     <br/>
-    <h:link value="Ajax Guess Number" outcome="/ajax/ajaxgreeting"/>
+    <h:link value="#{msgs.ajaxGuessNumber}" outcome="/ajax/ajaxgreeting"/>
     <br/>
-    <h:link value="Ajax Guess problem" outcome="/guessProblems/guessProblems"/>
+    <h:link value="#{msgs.ajaxGuessProblem}" outcome="/guessProblems/guessProblems"/>
 </ui:composition>
 </html>

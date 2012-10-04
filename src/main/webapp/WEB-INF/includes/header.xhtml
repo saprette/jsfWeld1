@@ -2,9 +2,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:ez="http://java.sun.com/jsf/composite/simpleOut">
+      xmlns:ez="http://java.sun.com/jsf/composite/simpleOut" xmlns:f="http://java.sun.com/jsf/core"
+        >
 <ui:composition>
     <h:graphicImage value="#{resource['images:wave.med.gif']}"/>
     <ez:myOut value="JSF discovery application"/>
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputText value=" #{msgs.language} :"/>
+            <h:selectOneMenu value="#{localeManager.localeCode}" onchange="submit()"
+                             valueChangeListener="#{localeManager.countryLocaleCodeChanged}">
+                <f:selectItems value="#{localeManager.countries}"/>
+            </h:selectOneMenu>
+        </h:panelGrid>
+    </h:form>
 </ui:composition>
 </html>
