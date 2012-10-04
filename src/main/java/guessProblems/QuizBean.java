@@ -56,7 +56,7 @@ public class QuizBean implements Serializable {
                 currentProblem = problems.get(problems.indexOf(currentProblem) + 1);
                 currentResponse = "";
                 tries = 0;
-                currentSubmitResult = "You're right !";
+                currentSubmitResult = "You're right ! test change";
                 applyStateVisibility();
             }
             return;
