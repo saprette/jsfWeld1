@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.tal.test</groupId>
+    <artifactId>jsfWeld1</artifactId>
+    <packaging>war</packaging>
+    <name>jsfWeld1</name>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- To set the jboss.home environment variable the Maven way, set the jboss.home property in an active profile in the Maven 2 settings.xml file -->
+        <jboss.home>/home/sam/jboss-as-7.1.1.Final</jboss.home>
+        <jboss.domain>default</jboss.domain>
+        <!-- The version of Weld extensions in use -->
+        <weld.extensions.version>1.0.0-CR2</weld.extensions.version>
+    </properties>
+
+    <repositories>
+        <!-- Several key Java EE APIs and RIs are missing from the Maven Central Repository -->
+        <!-- The goal is to eventually eliminate the reliance on the JBoss repository -->
+        <repository>
+            <id>repository.jboss.org</id>
+            <name>JBoss Repository</name>
+            <url>http://repository.jboss.org/maven2</url>
+        </repository>
+    </repositories>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Import scope will provide versions for dependencies below. -->
+            <dependency>
+                <groupId>org.jboss.weld</groupId>
+                <artifactId>weld-extensions-bom</artifactId>
+                <version>${weld.extensions.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <!-- CDI (JSR-299) -->
+        <dependency>
+            <groupId>javax.enterprise</groupId>
+            <artifactId>cdi-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!-- Common annotations (e.g., @PostConstruct, @PreDestroy, @Generated, @Resource)  -->
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>jsr250-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!-- Bean Validation (JSR-303) -->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!-- Bean Validation Implementation -->
+        <!-- Provides portable constraints such as @NotEmpty, @Email and @Url -->
+        <!-- Hibernate Validator is the only JSR-303 implementation at the moment, so we can assume it's provided -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>4.0.0.GA</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- JSF -->
+        <dependency>
+            <groupId>javax.faces</groupId>
+            <artifactId>jsf-api</artifactId>
+            <version>2.1</version>
+        </dependency>
+
+        <!-- Optional, but highly recommended. -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>5.10</version>
+            <scope>test</scope>
+            <classifier>jdk15</classifier>
+        </dependency>
+
+    </dependencies>
+    <build>
+        <finalName>${artifactId}</finalName>
+        <plugins>
+            <!-- Compiler plugin enforces Java 1.6 compatibility -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+
+            <!-- Configure the JBoss AS Maven deploy plugin -->
+            <plugin>
+                <groupId>org.jboss.as.plugins</groupId>
+                <artifactId>jboss-as-maven-plugin</artifactId>
+                <version>7.2.Final</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.zeroturnaround</groupId>
+                <artifactId>jrebel-maven-plugin</artifactId>
+                <version>1.1.1</version>
+                <executions>
+                    <execution>
+                        <id>generate-rebel-xml</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

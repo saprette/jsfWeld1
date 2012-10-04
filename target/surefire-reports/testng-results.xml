@@ -1,0 +1,14 @@
+<testng-results>
+  <reporter-output>
+  </reporter-output>
+  <suite name="com.tal.test.HelloWorldTest">
+    <groups>
+    </groups>
+    <test name="Command line test">
+      <class name="com.tal.test.HelloWorldTest">
+        <test-method status="PASS" signature="testGetText()" name="testGetText" duration-ms="3" started-at="2012-09-23T22:29:31Z" finished-at="2012-09-23T22:29:31Z">
+        </test-method>
+      </class>
+    </test>
+  </suite>
+</testng-results>

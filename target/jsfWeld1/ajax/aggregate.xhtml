@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/WEB-INF/includes/template.xhtml">
+
+    <ui:define name="htmlHead">
+        <meta name="description" content="An online calculator"/>
+        <title>Ajax counter</title>
+    </ui:define>
+
+    <ui:define name="main">
+        <h:form id="form1" prependId="false">
+            <h:outputScript name="jsf.js" library="javax.faces" target="head"/>
+            <h:outputScript name="javascript/aggregate.js" target="head"/>
+
+            Output: <h:outputText id="out1" value="#{echo.str}"/>
+            <br/>
+            Input: <h:inputText id="in1" value="#{echo.str}" autocomplete="off"
+                                onkeyup="aggregate('out1 in1', this)"/>
+            <br/>
+            Status:
+            <br/>
+            <textarea id="status" rows="10" cols="50" readonly="readonly"/>
+        </h:form>
+        <hr/>
+        <p>
+            <a href="http://weblogs.java.net/blog/driscoll/archive/2009/10/19/request-aggregation-jsf-2-ajax">
+                Blog discussing this example.
+            </a>
+        </p>
+    </ui:define>
+
+</ui:composition>
+
+</html>

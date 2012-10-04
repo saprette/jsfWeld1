@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/WEB-INF/includes/template.xhtml">
+
+    <ui:define name="htmlHead">
+        <title>Guess problems</title>
+    </ui:define>
+
+    <ui:define name="main">
+        <h:form>
+            <h:outputText id="question" value="#{quizBean.currentProblem.problem}"
+                          rendered="#{quizBean.displayQuestion}"/>
+            <br/>
+            <h:inputText id="response" value="#{quizBean.currentResponse}" rendered="#{quizBean.displayInput}"/>
+            <h:commandButton id="submitButton" value="Submit" action="#{quizBean.processResponse}"
+                             rendered="#{quizBean.displaySubmit}">
+                <f:ajax execute="response" render="@form"/>
+            </h:commandButton>
+            <h:commandButton id="resetButton" value="Reset" action="#{quizBean.reset}"
+                             rendered="#{quizBean.displayReset}">
+                <f:ajax execute="response" render="@form"/>
+            </h:commandButton>
+            <br/>
+            <h:outputText id="submitResult" value="#{quizBean.currentSubmitResult}"
+                          rendered="#{quizBean.displaySubmitResult}"/>
+            <br/>
+            <h:outputText id="answer" value="The answer is : #{quizBean.currentProblem.answer}"
+                          rendered="#{quizBean.displayAnswer}"/>
+            <br/>
+            <h:outputText id="score" value="Your score is : #{quizBean.score}" rendered="#{quizBean.displayScore}"/>
+        </h:form>
+    </ui:define>
+
+</ui:composition>
+
+</html>

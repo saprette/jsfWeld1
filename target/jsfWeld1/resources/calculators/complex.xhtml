@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:cc="http://java.sun.com/jsf/composite">
+
+<body>
+
+<cc:interface name="double"
+              displayName="Contract Component"
+              shortDescription="A basic example of using a bean's contract">
+    <cc:attribute name="contract" required="true">
+        <cc:attribute name="nb1" required="true"/>
+        <cc:attribute name="nb2" required="true"/>
+        <cc:attribute name="result" required="false"/>
+    </cc:attribute>
+    <cc:attribute name="action" method-signature="java.lang.String action()"/>
+</cc:interface>
+
+<cc:implementation>
+    <h:form>
+        <h:inputText value="#{cc.attrs.contract.nb1}"/>
+        <br/>
+        <h:inputText value="#{cc.attrs.contract.nb2}"/>
+        <br/>
+        Result : #{cc.attrs.contract.result}
+        <br/>
+        <h:commandButton id="button" action="#{cc.attrs.action}" value="Submit" type="submit"/>
+    </h:form>
+</cc:implementation>
+
+</body>
+
+</html>

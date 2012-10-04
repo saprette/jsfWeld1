@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/WEB-INF/includes/template.xhtml">
+
+    <ui:define name="htmlHead">
+        <meta name="description" content="An online calculator"/>
+        <title>Ajax counter</title>
+    </ui:define>
+
+    <ui:define name="main">
+        <h:form id="form1" prependId="false">
+            <h:outputScript name="jsf.js" library="javax.faces" target="head"/>
+            <h:outputText id="out1" value="#{count.count}"/>
+            <br/>
+            <h:commandButton id="button1" value="Count"
+                             onclick="jsf.ajax.request(this.id, event, {execute: this.id, render: 'out1'}); return false;"
+                             actionListener="#{count.increment}"/>
+            <br/>
+            <h:commandButton id="reset" value="reset"
+                             onclick="jsf.ajax.request(this.id, event, {execute:'reset', render: 'out1'}); return false;"
+                             actionListener="#{count.reset}"/>
+            <br/>
+            <h:commandButton id="multiply" value="Multiply by 2"
+                             onclick="jsf.ajax.request(this.id, event, {execute:'multiply', render: 'out1'}); return false;"
+                             actionListener="#{count.multiplyBy2}"/>
+            <h:messages/>
+        </h:form>
+
+        <p>
+            <h:outputLink value="http://weblogs.java.net/blog/driscoll/archive/2008/11/a_simple_ajax_j.html">
+                Blog discussing this example.
+            </h:outputLink>
+        </p>
+    </ui:define>
+
+</ui:composition>
+</html>

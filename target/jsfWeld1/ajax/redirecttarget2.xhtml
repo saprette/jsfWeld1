@@ -1,0 +1,21 @@
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xml:lang="en" lang="en"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<ui:composition template="/WEB-INF/includes/template.xhtml">
+
+    <ui:define name="htmlHead">
+        <title>Ajax Redirect - Page 1</title>
+    </ui:define>
+
+    <ui:define name="main">
+        <h1><h:outputText id="redirect" value="Redirect Target 2"/></h1>
+
+        <p><h:form><h:commandButton value="Go Back" action="redirect"/></h:form></p>
+    </ui:define>
+
+</ui:composition>
+
+</html>
