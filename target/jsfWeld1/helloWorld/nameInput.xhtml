@@ -4,14 +4,13 @@
 <ui:composition template="/WEB-INF/includes/template.xhtml">
 
     <ui:define name="htmlHead">
-        <meta name="description" content="Hello world input name"/>
-        <title>Hello world input name</title>
+        <title>HelloWorld Name input</title>
     </ui:define>
 
     <ui:define name="main">
         <h:form>
             <ez:inOutHelloWorld id="nameID" value="#{helloWorld.name}"/>
-            <h:commandButton id="submit" value="submit" action="helloWorld"/>
+            <h:commandButton id="submit" value="#Submit" action="helloWorld"/>
             <br/>
             <h:message for="nameID" showSummary="true"/>
         </h:form>

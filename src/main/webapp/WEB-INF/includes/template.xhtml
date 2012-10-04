@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
         >
 <h:head>
     <ui:insert name="htmlHead"/>
     <h:outputStylesheet library="css" name="template.css"/>
+    <f:view locale="#{localeManager.localeCode}"/>
 </h:head>
 <h:body>
     <h:panelGroup layout="block" styleClass="header">

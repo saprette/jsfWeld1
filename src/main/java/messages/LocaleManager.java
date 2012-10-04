@@ -21,6 +21,8 @@ public class LocaleManager implements Serializable {
 
     @PostConstruct
     public void init() {
+        localeCode = FacesContext.getCurrentInstance().getViewRoot().getLocale().getLanguage();
+        System.out.println(localeCode);
         refreshCountries();
     }
 
