@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<ui:composition template="/WEB-INF/includes/template.xhtml">
+    <ui:define name="htmlHead">
+        <h:outputStylesheet library="css" name="styles.css"/>
+        <title>Converter 2</title>
+    </ui:define>
+    <ui:define name="main">
+        <h:form>
+            <h1>#{msgs.enterPayment}</h1>
+            <h:panelGrid columns="3">
+                #{msgs.amount}
+                <h:inputText id="amount" label="#{msgs.amount}"
+                             value="#{payment2.amount}">
+                    <f:convertNumber minFractionDigits="2"/>
+                </h:inputText>
+                <h:message for="amount" styleClass="errorMessage"/>
+
+                #{msgs.creditCard}
+                <h:inputText id="card" label="#{msgs.creditCard}"
+                             value="#{payment2.card}">
+                </h:inputText>
+                <h:message for="card" styleClass="errorMessage"/>
+
+                #{msgs.expirationDate}
+                <h:inputText id="date" label="#{msgs.expirationDate}"
+                             value="#{payment2.date}">
+                    <f:convertDateTime pattern="MM/yyyy"/>
+                </h:inputText>
+                <h:message for="date" styleClass="errorMessage"/>
+            </h:panelGrid>
+            <h:commandButton value="#{msgs.process}" action="converter2Result"/>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>

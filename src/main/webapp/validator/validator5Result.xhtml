@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:corejsf="http://corejsf.com">
+
+<ui:composition template="/WEB-INF/includes/template.xhtml">
+    <ui:define name="htmlHead">
+        <h:outputStylesheet library="css" name="styles.css"/>
+        <title>#{msgs.title}</title>
+    </ui:define>
+    <ui:define name="main">
+        <h:form>
+            <h1>#{msgs.paymentInformation}</h1>
+            <h:panelGrid columns="2">
+                #{msgs.amount}
+                <h:outputText value="#{payment5.amount}"/>
+                #{msgs.creditCard}
+                <h:outputText value="#{payment5.card}">
+                    <corejsf:convertCreditCard separator="-"/>
+                </h:outputText>
+                #{msgs.expirationDate}
+                <h:outputText value="#{payment5.date}">
+                    <f:convertDateTime pattern="MM/yyyy"/>
+                </h:outputText>
+            </h:panelGrid>
+            <h:commandButton value="Back" action="validator5"/>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>

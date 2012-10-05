@@ -9,6 +9,11 @@
 
     <!-- Write your navigation rules here. You are encouraged to use CDI for creating @Named managed beans. -->
 
+    <converter>
+        <converter-for-class>com.corejsf.CreditCard</converter-for-class>
+        <converter-class>com.corejsf.CreditCardConverter</converter-class>
+    </converter>
+
     <application>
         <locale-config>
             <default-locale>fr</default-locale>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<ui:composition template="/WEB-INF/includes/template.xhtml">
+    <ui:define name="htmlHead">
+        <h:outputStylesheet library="css" name="styles.css"/>
+        <title>Validator 2 custom</title>
+    </ui:define>
+    <ui:define name="main">
+        <h:form>
+            <h1>#{msgs.enterPayment}</h1>
+            <h:panelGrid columns="3">
+                #{msgs.amount}
+                <h:inputText id="amount" label="#{msgs.amount}"
+                             value="#{payment.amount}">
+                    <f:convertNumber minFractionDigits="2"/>
+                </h:inputText>
+                <h:message for="amount" styleClass="errorMessage"/>
+
+                #{msgs.creditCard}
+                <h:inputText id="card" label="#{msgs.creditCard}"
+                             value="#{payment.card}" required="true">
+                    <f:converter converterId="com.corejsf.Card"/>
+                    <f:validator validatorId="com.corejsf.Card"/>
+                </h:inputText>
+                <h:message for="card" styleClass="errorMessage"/>
+
+                #{msgs.expirationDate}
+                <h:inputText id="date" label="#{msgs.expirationDate}"
+                             value="#{payment.date}">
+                    <f:convertDateTime pattern="MM/yyyy"/>
+                </h:inputText>
+                <h:message for="date" styleClass="errorMessage"/>
+            </h:panelGrid>
+            Good card example for luhnCheck : 4111 1111 1111 1111
+            <br/>
+            <h:commandButton value="#{msgs.process}" action="validator2Result"/>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>
