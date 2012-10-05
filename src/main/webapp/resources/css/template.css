@@ -1,42 +1,42 @@
-.header,.footer {
-	background-color: #cfcfcf;
-	width: 800px;
+.header, .footer {
+    background-color: #cfcfcf;
+    width: 1000px;
     text-align: center;
 }
 
 .main {
-	display: inline;
+    display: inline;
 }
 
 .middle-table {
-	border-width: 0px;
-	width: 800px;
+    border-width: 0px;
+    width: 1000px;
 }
 
 .middle-table td {
-	padding: 0px;
-	vertical-align: top;
+    padding: 0px;
+    vertical-align: top;
 }
 
 .nav-col {
-	background-color: #ccccff;
-	width: 20%;
+    background-color: #ccccff;
+    width: 20%;
 }
 
 .main-col {
-	background-color: #aaaaaa;
-	width: 70%;
+    background-color: #aaaaaa;
+    width: 70%;
 }
 
 .nav-col a {
-	display: list-item;
-	list-style: none;
+    display: list-item;
+    list-style: none;
 }
 
 .nav-col form {
-	display: inline;
+    display: inline;
 }
 
 .nav-col .selected {
-	font-weight: bold;
+    font-weight: bold;
 }

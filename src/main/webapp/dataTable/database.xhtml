@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<ui:composition template="/WEB-INF/includes/template.xhtml">
+    <ui:define name="htmlHead">
+        <h:outputStylesheet library="css" name="styles.css"/>
+        <title>Database</title>
+    </ui:define>
+    <ui:define name="main">
+        <h:form>
+            <h:dataTable value="#{customerBean.all}" var="customer"
+                         styleClass="customers" headerClass="customersHeader"
+                         columnClasses="custid,name">
+                <h:column>
+                    <f:facet name="header">#{msgs.customerIdHeader}</f:facet>
+                    #{customer.ID}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">#{msgs.nameHeader}</f:facet>
+                    #{customer.NAME}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">#{msgs.phoneHeader}</f:facet>
+                    #{customer.PHONE}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">#{msgs.addressHeader}</f:facet>
+                    #{customer.ADDRESS}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">#{msgs.cityHeader}</f:facet>
+                    #{customer.CITY}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">#{msgs.stateHeader}</f:facet>
+                    #{customer.STATE}
+                </h:column>
+            </h:dataTable>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>
